@@ -1,6 +1,5 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Introduction
+"Travel is a great way to become a better and cooler person. You can plan your trips easily with Trips at Tips, a user-friendly travel app that helps you meet new people and calculate the cost per person."
 
 Currently, two official plugins are available:
 
