@@ -22,7 +22,6 @@ function Login() {
     const { email, password } = form;
     console.log(email, password);
     await axios.post("http://localhost:3020/login", { email, password }).then((res) => {
-      console.log(res.data.message);
       navigate("/choose");
     });
   };
