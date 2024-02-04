@@ -20,7 +20,7 @@ function Login() {
   const signin = async (e) => {
     e.preventDefault();
     const { email, password } = form;
-    axios.post("https://triptracks-backend2.onrender.com/login", { email, password }).then((res) => {
+    await axios.post("https://triptracks-backend2.onrender.com/login", { email, password }).then((res) => {
       message = res.data.message;
       navigate("/choose");
     });
