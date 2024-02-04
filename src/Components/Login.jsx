@@ -16,12 +16,13 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   };
-
+  
   const signin = async (e) => {
     e.preventDefault();
     const { email, password } = form;
-    await axios.post("https://triptracks-backend2.onrender.com/login", { email, password }).then((res) => {
-      message = res.data.message;
+    console.log(email, password);
+    await axios.post("http://localhost:3020/login", { email, password }).then((res) => {
+      console.log(res.data.message);
       navigate("/choose");
     });
   };
@@ -46,16 +47,18 @@ function Login() {
         <input
           className="login_main_ans1"
           type="email"
-          id="password"
+          name="email"
           placeholder="Username@gmail.com"
+          value={form.email}
           onChange={handleChange}
           required
         />
         <p className="login_main_qu2">Password</p>
         <input
           className="login_main_ans2"
-          type="text"
-          id="password"
+          type="password"
+          name="password"
+          value={form.password}
           placeholder="****************"
           onChange={handleChange}
           required

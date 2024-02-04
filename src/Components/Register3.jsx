@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Style/Register3.css";
 import "../Style/Register1.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register3({ handleChange, values, nextStep }) {
   const { email, username, password, cpassword } = values;
@@ -10,6 +11,20 @@ function Register3({ handleChange, values, nextStep }) {
   const Continue = (e) => {
     e.preventDefault();
     nextStep();
+  };
+  
+  const handleSignup = async () => {
+    const { email, username, password, cpassword } = values;
+
+    if (password === cpassword && password !== null && cpassword !== null) {
+      await axios
+        .post("http://localhost:3020/register", { email, username, password })
+        .then((res) => {
+          console.log(res);
+          navigate("/login");
+        })
+        .catch((err) => console.log(err));
+    }
   };
   
   return (
@@ -51,7 +66,7 @@ function Register3({ handleChange, values, nextStep }) {
         />
         <button
           type="submit"
-          onClick={Continue}
+          onClick={()=>{handleSignup()}}
           className="bg-[#FB8500] w-[212px] h-[48px] text-[24px] ml-auto mr-auto absolute left-0 right-0 rounded-[12px] mt-[72px] text-[#F6EFE6]"
         >
           Continue

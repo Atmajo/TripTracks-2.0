@@ -6,22 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Choose({ values }) {
-  const navigate = useNavigate();
-  
-  const handleSignup = async () => {
-    const { email, username, password, cpassword } = values;
-
-    if (password === cpassword && password !== null && cpassword !== null) {
-      await axios
-        .post("https://triptracks-backend2.onrender.com/register", { email, username, password })
-        .then((res) => {
-          console.log(res);
-          navigate("/login");
-        })
-        .catch((err) => console.log(err));
-    }
-  };
-  
   const tab1 = "discover";
   const tab2 = "planning";
   const tab3 = "review";
@@ -76,14 +60,11 @@ function Choose({ values }) {
           <p className="Choose_Card_sub">and informative community.</p>
         </Link>
       </div>
-      <button
+      <a
         className="Choose_skip"
-        onClick={() => {
-          handleSignup();
-        }}
       >
-        Submit
-      </button>
+        Skip{'->'}
+      </a>
     </div>
   );
 }
