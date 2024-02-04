@@ -76,7 +76,6 @@ function WeatherHub() {
           lat = response.data[1].lat;
           lon = response.data[1].lon;
         }
-        console.log(lat, lon);
       });
       await axios
         .get(
