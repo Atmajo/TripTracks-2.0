@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault();
     const { email, password } = form;
     console.log(email, password);
-    await axios.post("http://localhost:3020/login", { email, password }).then((res) => {
+    await axios.post("https://triptracks-backend2.onrender.com/login", { email, password }).then((res) => {
       navigate("/choose");
     });
   };

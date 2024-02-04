@@ -8,17 +8,12 @@ function Register3({ handleChange, values, nextStep }) {
   const { email, username, password, cpassword } = values;
   const navigate = useNavigate();
   
-  const Continue = (e) => {
-    e.preventDefault();
-    nextStep();
-  };
-  
   const handleSignup = async () => {
     const { email, username, password, cpassword } = values;
 
     if (password === cpassword && password !== null && cpassword !== null) {
       await axios
-        .post("http://localhost:3020/register", { email, username, password })
+        .post("https://triptracks-backend2.onrender.com/register", { email, username, password })
         .then((res) => {
           console.log(res);
           navigate("/login");
